@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bubbling & Capturing</title>
+    <style>
+      .capturing div {
+        min-width: 100px;
+        min-height: 100px;
+        padding: 30px;
+        border: 1px solid black;
+      }
+      .delegation li {
+        margin-bottom: 10px;
+        font-size: larger;
+      }
+      ul{
+        padding: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="padding: 50px" class="outer">
+      <div class="capturing">
+        <h2>Bubbling & capturing</h2>
+
+        <!-- capturing and bubbling -->
+        <div class="grandparents">
+          <div id="parent">
+            <div id="child">
+              <!--onclick="bubble()"-->
+              <p>
+                by default bubbling occurs, for capturing we have to use
+                capture=true or true in the function call
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="delegation">
+        <ul id="category">
+          <li id="laptops">Laptops</li>
+          <li id="mobiles">Mobiles</li>
+          <li id="sandals">Sandals</li>
+        </ul>
+      </div>
+
+      <div id="form">
+        <input type="text" id="name" data-uppercase>
+        <input type="number" id="phone">
+        <input type="email" id="email" data-uppercase>
+
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript" src="capturing.js"></script>
+  <script type="text/javascript" src="delegation.js"></script>
+</html>

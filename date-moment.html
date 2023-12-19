@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> -->
+    <script src="https://momentjs.com/downloads/moment-with-locales.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="jquery-ui.min.css" />
+    <!-- <script src="func-program.js"></script> -->
+    <script src="func-example.js"></script>
+    <script src="prototype.js"></script>
+    <script src="cal-bind.js"></script>
+    <script src="jquery-3.6.4.min.js" type="text/javascript"></script>
+    <script src="jquery-ui.min.js" type="text/javascript"></script>
+</head>
+<script>
+    // const m = moment().format("L");
+    //   console.log(m.toString());
+
+    function format(e) {
+        // console.log(e.value);
+        const val = e.value;
+        // var a = document.getElementById("from").value;
+        var dateMomentObject = moment(val).format("L")
+        console.log(dateMomentObject)
+
+        // var dateObject = dateMomentObject.toDate();
+        // document.getElementById("from").value = dateObject.toString();
+        // document.body.innerHTML = dateObject.toString();
+
+        const setD = document.querySelector("#mydate")
+        setD.setAttribute("value", dateMomentObject)
+    }
+
+    // const dateInput = document.getElementById('newDate');
+    //     dateInput.value = formatDate();
+    // ✅ Using the visitor's timezone
+    console.log(formatDate());
+    function padTo2Digits(num) {
+        return num.toString().padStart(2, '0');
+    }
+    function formatDate(date = new Date()) {
+        return [
+            padTo2Digits(date.getMonth() + 1),
+            padTo2Digits(date.getDate()),
+            date.getFullYear(),
+        ].join('/');
+    }
+    function update() {
+        const dateInput = document.getElementById('newDate');
+        dateInput.value = formatDate();
+        // dateInput.value = new Date().toISOString().split('T')[0];
+        return formatDate()
+    }
+
+//     var tempDate = new Date("2021-09-21");
+// var formattedDate = [tempDate.getMonth() + 1, tempDate.getDate(), tempDate.getFullYear()].join('/');
+
+// const date = moment(db, 'YYYY-DD-MM');
+
+    // $("input").on("change", function () {
+    //     this.setAttribute(
+    //         "data-date",
+    //         moment(this.value, "dd/mm/yyyy")
+    //             .format(this.getAttribute("data-date-format"))
+    //     )
+    // }).trigger("change")
+
+</script>
+
+<body>
+    <h1>Date field</h1>
+    <input type="date" id="from" onchange="format(this)" value="" data-date="" data-date-format="mm-dd-yyyy" />
+
+    <input type="text" name="input" id="mydate" placeholder="YYYY-MM-DD" required
+        pattern="(?:19|20)\[0-9\]{2}-(?:(?:0\[1-9\]|1\[0-2\])-(?:0\[1-9\]|1\[0-9\]|2\[0-9\])|(?:(?!02)(?:0\[1-9\]|1\[0-2\])-(?:30))|(?:(?:0\[13578\]|1\[02\])-31))"
+        title="Enter a date in this format MM/DD/YYYY" />
+
+    <br />
+    <br />
+    <br />
+    <form>
+        <input type="date" id="newDate" value="" onchange="update()" />
+        DOB: <input type="text" size="30" class="" id="datepicker" />
+    </form>
+    <h1>JS - Functional Programming: </h1>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#datepicker').datepicker({
+                dateFormat: "dd-mm-yy",
+                changeMonth: true,
+                changeYear: true
+            });
+        })
+    </script>
+</body>
+
+
+</html>
