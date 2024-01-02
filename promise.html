@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -8,10 +9,11 @@
     <!-- <script type="text/javascript" src="promise.js"></script> -->
     <!-- <script type="text/javascript" src="promise2.js"></script> -->
     <script type="text/javascript" src="debouncing.js"></script>
-    <script type="text/javascript" src="firstclass.js"></script>
+    <!-- <script type="text/javascript" src="firstclass.js"></script>
     <script type="text/javascript" src="throttling.js"></script>
-    <script type="text/javascript" src="findmatch.js"></script>
+    <script type="text/javascript" src="findmatch.js"></script> -->
   </head>
+
   <body>
     <div style="padding: 50px" class="outer">
       <div>
@@ -23,11 +25,26 @@
         <br />
         <br />
         <h2>Debouncing</h2>
-        <input type="text" width="200" onkeyup="betterFunc()" />
+        <!-- when you are making time consumingfunction , it is to restrict the calling function frequently by delaying the execution of func
+        until a specific time to avoid unnecessary cpu cycles, apis calls, & it improve the performance as well 
+        result(e.target.value)-->
+        first: <input type="text" width="200" onkeyup="betterFunc()" /></br></br>
+        second: <input type="text" id="second" width="200" />
+        <br />
+        <button id="val">value</button>
+        <br />
         <br />
         <h2>throttling</h2>
         <input type="text" width="200" onkeyup="throttlingExp()" />
+
+        <!-- Pure function:- reusable, readable, predictable, testable  -->
+        <!-- <p>{purefunc(20,30)}</p> -->
+        <!-- pure fun cannot manipulate the dom - like updating the global variable -->
+        <!-- if fun is using console inside it- not pure -->
+        <!-- if using external sources inside the fun - not pure -->
+        <!-- impure - operation that is not directly related to the final func -->
       </div>
     </div>
   </body>
+
 </html>

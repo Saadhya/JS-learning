@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Closures</title>
+        <script src="./flattenArr.js"></script>
+        <!-- <script>
+            let products = document.getElementsByClassName("item");
+            // let list = document.getElementById("count");
+            // let len = products.length;
+
+            // console.log(products.map((prod) => { return prod }));
+            console.log(products);
+            function updateCart(){
+                document.getElementById("count").innerHTML=cartcounter.totalCount();
+            }
+            // object oriented pattern
+            let cartcounter = (function(){
+                let count = 0; //private variable
+                return {
+                    increment:()=>count+=1,
+                    decrement:()=>count-=1,
+                    totalCount:()=>count
+                }
+            })()
+            let counter = cartcounter();
+
+            // document.getElementById("count").addEventListener("click", function (e) {
+            //     if (e.target && e.target.matches("li.item")) {
+            //         e.target.className = "foo"; // new class name here
+            //     }
+            // });
+            // for (let i = 0; i < len; i++) {
+            //     console.log(products[i].reverse());
+            //     products[i].addEventListener('click', function () {
+            //         console.log("clicked!!")
+
+                     // if (this.className.indexOf('selected') < 0) {
+                        //     this.className += ' selected'
+                        // cartcounter.increment();
+                        // updateCart()
+                        // } else {
+                        //     this.className = this.className.replace('selected', "")
+                        // cartcounter.decrement();
+                        // updateCart()
+                        // }
+            //     })
+            // }
+
+        </script> -->
+        <style>
+            .selected {
+                background-color: aqua;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Closures in javascript</h1>
+        <!-- <h2>{flatten(arr)}</h2> -->
+        <h2>count</h2>
+        <ul id="count">
+            <li class="item">iPhone</li>
+            <li class="item">samsung</li>
+            <li class="item">android</li>
+            <li class="item">Pexel</li>
+        </ul>
+        <h2>total: </h2>
+    </body>
+
+</html>

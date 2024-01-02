@@ -1,6 +1,6 @@
 // use of map functions
 const users = [
-  { name: "akshay", age: 10 },
+  { name: "akash", age: 10 },
   { name: "neeraj", age: 20 },
   { name: "vasu", age: 20 },
   { name: "shiv", age: 40 },
