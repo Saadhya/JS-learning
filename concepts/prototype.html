@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="prototypeInJs.js"></script>
+        <style>
+            .wave-btn {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                /* background-color: #272727; */
+                background-image: url("waves-gradient.webp");
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+                background-size: cover;
+            }
+
+            a {
+                text-decoration: none;
+                padding: 15px 30px;
+                color: #00aeff;
+                font-weight: 600;
+                font-size: 20px;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                position: relative;
+                border: 2px solid #00aeff;
+                overflow: hidden;
+            }
+
+            .wave {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: calc(100% + 22px);
+                left: 0;
+                background-color: #00aeff;
+                transition: all 1s;
+                z-index: -1;
+            }
+
+            .wave::before {
+                content: "";
+                position: absolute;
+                height: 22px;
+                width: 100%;
+                top: -22px;
+                background-image: url("wave.png");
+                animation: wavy 0.5s linear infinite;
+            }
+
+            @keyframes wavy {
+                0% {
+                    background-position-x: 0;
+                }
+
+                100% {
+                    background-position-x: 122px;
+                }
+            }
+
+            a:hover .wave {
+                top: 0;
+            }
+
+            /* a:hover {
+                color: white;
+            } */
+        </style>
+    </head>
+
+    <body>
+        <h1>CSS BUTTON</h1>
+        <div class="wave-btn">
+            <a href="" target="_blank">CSS work
+                <div class="wave"></div>
+            </a>
+        </div>
+
+        <div>
+            <h1>Prototype in Javascript</h1>
+            <p>
+                here's what happens behind the scenes when new keyword used :
+                A new object is created:the new keyword initiates the creation of new Javascript objeect
+                A prototype is linked. the newly created object gets linked to the prototype
+                property of the constructor function. this means that it has access to properties
+                and methods defined on the constructor's prototype.
+            </p>
+            <p>
+                the constructor is called: The constructor function is called with the specified
+                arguements and this is bound to the enwly created object. if no explicit return value is
+                specified from the constructor. Javascript assumes this, the newly created object, to be
+                the intended return value.
+            </p>
+            <p>
+                the new object is returned: After the constructor function has been called, if it doesn't return
+                a non-primitive value (object, array, function, etc.) the newly created object is returned.
+            </p>
+        </div>
+    </body>
+
+</html>
