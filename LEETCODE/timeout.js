@@ -46,3 +46,8 @@ var cancellable = function (fn, args, t) {
  *      console.log(result); // [{"time":20,"returned":10}]
  *  }, maxT + 15)
  */
+// EXPLAINATION
+// The cancellable() function returns a function called cancel(). When the cancel() function is called, it will cancel the delayed execution of the fn function.
+// In the example above, we create a cancelFn variable and assign it the result of calling the cancellable() function. We then pass the cancelFn variable to the setTimeout() function.
+// The setTimeout() function will call the cancelFn function after 1000 milliseconds. However, we immediately call the cancelFn function, which will cancel the delayed execution of the fn function.
+// As a result, the fn function will never be called.
