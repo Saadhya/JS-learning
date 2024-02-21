@@ -12,3 +12,6 @@ In this example, the memoize function takes a function as an argument and return
 # day3 
 If you are getting [object Promise] as value, it means that you are calling an asynchronous function inside a synchronous code. This means the synchronous code runs line by line giving no room for asynchronous code to wait and give a response (the promise).
 To fix this, you can use the then() method or the async/await syntax to wait for the Promise to resolve before continuing with your code.
+
+# function currying
+In function currying, it should be single arguement only for each nested function otherwise its partial application
