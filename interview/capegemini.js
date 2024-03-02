@@ -53,3 +53,33 @@ useEffect();
 // return;
 // }
 // const abc=()=>{}
+
+// SECOND DAY INTERVIEW-
+// const Products=()=>{
+//   const [name, setName]=useState("neha")
+//   const [message, setMessage]=useState("")
+
+//   const handleClick=(e)=>{
+//   if(name==="kajal"){
+//     setMessage("")
+//   }else{
+//   setName("kajal");
+//   setName((prev)=> )
+//   setMessage("name changed")
+//   }
+
+//   }
+//   useEffect()
+
+//   return (
+//   <div>
+//     {name}
+//   <button onClick={handleClick}>click me</button>
+//   {message}
+
+//   </div>
+//   )
+
+//   };
+
+// learn the more efficient way of updating values without if() and using useefffect()
