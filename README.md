@@ -15,3 +15,21 @@ To fix this, you can use the then() method or the async/await syntax to wait for
 
 # function currying
 In function currying, it should be single arguement only for each nested function otherwise its partial application
+
+
+# DIFF BETWEEN normal js function and arrow function
+While the method with the regular function logs the object to the console, the one with the arrow function logs the global window object instead.
+
+REGULAR FUNC:
+Regular functions are defined using the function keyword followed by the function name, parameters, and function body.
+Regular functions have their own this binding, which refers to the object that owns the function.
+Regular functions must explicitly return a value using the return keyword.
+Regular functions are typically used when you need to define a function that has its own this binding or arguments object.
+Regular functions have their own arguments object, which contains a list of all the arguments passed to the function.
+
+ARROW FUNC:
+Arrow functions are defined using the => symbol. The parameters are listed before the => symbol, and the function body is listed after the => symbol.
+Arrow functions do not have their own this binding. Instead, they inherit the this binding from the surrounding lexical context.
+Arrow functions can implicitly return a value if the function body contains a single expression.
+Arrow functions are typically used when you need to define a concise and readable function that does not need its own this binding or arguments object.
+Arrow functions do not have their own arguments object. Instead, they use the rest parameters syntax (...args) to access the arguments passed to the function.
