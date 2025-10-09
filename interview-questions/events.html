@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <style>
+        div {
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        h2 {
+            color: black;
+        }
+        #grandparent {
+            background-color: green;
+            width: 300px;
+            height: 300px;
+        }
+        #parent {
+            background-color: blue;
+            width: 200px;
+            height: 200px;
+        }
+        #child {
+            background-color: red;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <script>
+        // bubbling
+        document.getElementById("bub_child").addEventListener("click", () => {
+            console.log("child clicked");
+        }, false);
+        document.getElementById("bub_parent").addEventListener("click", () => {
+            console.log("parent clicked");
+        }, false);
+
+        // capturing
+        document.getElementById("cap_child").addEventListener("click", () => {
+            console.log("child clicked");
+        }, true);
+        document.getElementById("cap_parent").addEventListener("click", () => {
+            console.log("parent clicked");
+        }, true);
+    </script>
+</head>
+<body>
+    <h1>Events</h1>
+    <!-- bubbling -->
+    <div id="grandparent">GrandParent
+        <div id="parent">Parent
+            <div id="child">Child</div>
+        </div>
+    </div>
+
+    <h3 id="">events bubbling </h3>
+    <button id="bub_parent">click parent</button>
+    <button id="bub_child">click child</button>
+
+    <h3 id="">events capturing</h3>
+    <button id="cap_parent">click parent</button>
+    <button id="cap_child">click child</button>
+    <script>
+        const grandParent = document.getElementById("grandparent");
+        const parent = document.getElementById("parent");
+        const child = document.getElementById("child");
+
+        // bubbling
+        grandParent.addEventListener("click", (e) => {
+            console.log("GrandParent");
+        }, { capture: false });
+        parent.addEventListener("click", (e) => {
+            e.stopPropagation(); // to stop event bubbling
+            console.log("Parent");
+        }, { capture: false });
+        child.addEventListener("click", (e) => {
+            console.log("Child");
+        }, { capture: false });
+
+        // capturing
+        grandParent.addEventListener("click", (e) => {
+            console.log("cap GrandParent");
+        }, { capture: true });
+        parent.addEventListener("click", (e) => {
+            console.log("cap Parent");
+        }, { capture: true });
+        child.addEventListener("click", (e) => {
+            console.log("cap Child");
+        }, { capture: true });
+    </script>
+</body>
+</html>
+
+<!-- Event capturing means propagation of event is done from ancestor elements to child element in the DOM while event bubbling means propagation is done from child element to ancestor elements in the DOM.
+The event capturing occurs followed by event bubbling.
+If {capture: true} ,event capturing will occur else event bubbling will occur.
+Both can be prevented by using the stopPropagation() method. -->
