@@ -45,8 +45,8 @@ const obj = {
     console.log(this.name);
   },
 };
-// n this example, the this binding inside the printName() function refers to the obj object, even though the function is defined
-// using an arrow function. This is because the arrow function inherits the this binding from the surrounding lexical context, which
+// n this example, the "this" binding inside the printName() function refers to the obj object, even though the function is defined
+// using an arrow function. This is because the arrow function inherits the "this" binding from the surrounding lexical context, which
 // is the obj object.
 
 obj.printName(); // "John"

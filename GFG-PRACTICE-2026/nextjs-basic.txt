@@ -1,0 +1,101 @@
+NEXTJS:-
+PRE-RENDERING
+---------------
+static rendering at build time- data that changes rarely
+server-side rendering
+at build time- for changing data periodically
+at request time- individualized data
+client side rendering- code that must run on client side (at request time)
+
+routes:
+statoc routes(build time)
+dynamic routes (not static but known at build/request time)
+
+API ROUTES:
+standard programming
+can be shared across the internet
+
+CODING:-
+----------
+getserverProps()-> means to build at request time, 
+called server-side pre-rendering at request time.
+server-side pre-rendering at build time
+
+getstaticProps()- provide props at build time for server-side pre-rendering
+getserversideprops()
+getstaticpath()
+getprerenderprops()
+
+When you don't know the exact segment names ahead of time, dynamic segments allow Next.js to to pre-render the actual routes at build-time with the actual path names provided.
+With Next.js, anything that is put in the route /api/* are treated as API endpoints, not pages
+Any other web projects and the public will be able to use these functions
+t can pre-render pages on the server and decrease network traffic during page loading.
+
+
+KEYWORDS:-
+-----------
+prerender
+dynamic segment
+
+npx create-next-app app-demo
+SSR= server side rendering
+SSR is useful for SEO & WEB CRAWLERS
+NEXTjs creates html from js on server-side & delivers to a browser
+
+server-side page with a getserversideprops() functions to generate page on 
+request which is appropriate if data on page changes often.
+
+
+GITHUB COPILOT:-
+show auto suggestion in your editor
+work for all languages - best is js from your git repos
+
+3 types:
+copilot individual, business, enterprise
+
+
+
+FIGMA LEARNING:-
+go to resources> plugins> search for webframe designer> add your prompt
+PROMPTS in designer:
+app should allow users to:
+-signup  and create a profile
+-order a cup of coffee for pick-up
+-order other coffee products (beans, mugs, etc.)
+-rate a coffee purchase
+
+TO UPDATE LATER:-
+add total locations in coffee sales
+
+LEARNING NODE JS/EXPRESS:-
+Uniform interface
+POST/GET/PUT/DELETE
+HATEOAS- hypermedia as the engine of application state
+
+start with:-
+npm init
+
+after creating app.js file 
+node app.js
+
+never install eslint globally:-
+npm install eslint -D
+npm run lint -- --init
+
+TO CHECK ERRORS IN JS FILE:-
+npm run lint
+
+npm install nodemon
+
+node --inspect server.js
+node --inspect-brk server.js
+
+
+to auto restart apps/watch node:-
+node --watch-path=./src src/exp.mjs
+
+noida/mumbai/bangalore/
+sachin kumar
+ayush agarwal
+Is it only for ReactJs?
+

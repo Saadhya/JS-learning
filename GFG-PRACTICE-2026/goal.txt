@@ -1,0 +1,387 @@
+map and filter() difference
+create sort() in js
+create interface in ts
+how to check object's object
+single operators
+numbers.sort()
+box-sizing: and box-model
+temporal deadzone
+
+Literals
+Session Management
+Debugging
+React Redux
+Create Server-
+Node Core
+React Hook
+Advance Deployment Process
+Introduction of mock functions.
+React
+Database Integration
+Asynchronous API request
+Dev Scripts
+Spread Parameter
+Prototypal Inheritance
+Optimization
+TypeScript Files
+DOM Assertions
+NPM
+React Props and State / Styling Components
+Monorepository Basics
+Webpack
+TDD
+Mongoose
+WCAG
+Managing CORS
+
+INTERMEDIATE 
+
+Acquiring Proficiency in:
+TypeScript
+Monorepositories
+BEGINNER 
+
+Need to become proficient in:
+Screen Reader
+Managing Packages
+JavaScript
+Authentication
+React Context API/Higher Order Component
+Atomic Components-
+Function Arguments
+Nunit
+Matchers
+Fundamentals
+ReactJS
+Snapshot Testing
+Asynchronous Code Testing
+JWT token implementation
+Functional Testing
+Handling HTTP responses
+JSON Schema
+BEST PRACTICES
+Node JS
+Code Splitting
+Promises
+Frontend Development
+React Redux+Thunk
+Storybook-
+Login & Logout
+Handling Exceptions
+
+
+
+5+ years of experience in frontend web development using Angular and/or ReactJS
+Develop and maintain web applications using Angular, ReactJS, TypeScript, ES5/ES6, HTML5, and CSS3/SASS/SCSS, VueJS/NextJS/NuxtJS
+Implement responsive and accessible designs following the Atomic Design Model
+Build reusable library components to enhance development efficiency and maintain a consistent user experience
+Familiarity with cloud platforms like AWS, Azure, or GCP
+Collaborate with backend developers to integrate frontend components with APIs and services
+Optimize application performance, bundle size, and loading speed using tools like Webpack and Module Federation (MFA)
+Write unit tests using JEST/JASMINE to ensure code quality and maintainability
+Participate in code reviews and provide constructive feedback to team members
+Stay up-to-date with emerging frontend technologies and best practices
+Excellent problem-solving and debugging skills
+Strong communication and collaboration abilities
+Ability to work independently and deliver high-quality code within deadlines
+
+Good to Have:
+
+Experience with backend technologies such as NodeJS, .NET Core, or Java Spring Boot
+Knowledge of CI/CD pipelines and tools
+Experience with Docker containers and Kubernetes
+Contributions to open-source projects or personal side projects
+
+MY NEW GOAL:-
+A Solution Architect focuses on designing comprehensive solutions to meet specific business needs,while a Software Architect focuses on the internal structure and design of software systems.  Solution architects consider the entire system, including software, hardware, and infrastructure, while software architects focus on the software itself. 
+
+FIRST TO BE SOFTWARE ARCHITECT:
+Designs the high-level structure and behavior of software systems. 
+Ensures that the software is well-designed, efficient, and scalable. 
+Focuses on the internal components of a system, how they interact, and how they are assembled. 
+May also be involved in code reviews and selecting appropriate technologies for the project. 
+
+THEN SOLUTION ARCHITECT:-
+Designs solutions that address business requirements, considering various factors like cost, performance, and scalability. 
+Works at the intersection of business strategy and technology, ensuring that IT infrastructure aligns with business goals. 
+May be involved in selecting technologies, evaluating vendors, and integrating different systems. 
+Often acts as a consultant or advisor, helping businesses make strategic decisions about technology. 
+
+
+In essence:
+A Solution Architect thinks about the "big picture," ensuring that the solution meets the overall business needs. 
+A Software Architect focuses on the "inner workings" of the software system, ensuring it's well-designed and efficient. 
+
+Example:
+Imagine a company wants to implement a new customer relationship management (CRM) system.
+A Solution Architect would be responsible for designing the entire CRM solution, considering factors like:
+Which CRM software to choose (e.g., Salesforce, Microsoft Dynamics). 
+How the CRM system will integrate with existing databases and systems. 
+The hardware and infrastructure required to support the CRM system. 
+The business processes that will be affected by the CRM system. 
+A Software Architect would be responsible for designing the architecture of the specific CRM software, including:
+The database design. 
+The user interface design. 
+The algorithms and code that power the CRM system. 
+How the different modules of the CRM system will interact with each other. 
+
+
+
+'use strict';
+
+process.stdin.resume();
+process.stdin.setEncoding('utf-8');
+
+let inputString = '';
+let currentLine = 0;
+
+process.stdin.on('data', inputStdin => {
+    inputString += inputStdin;
+});
+
+process.stdin.on('end', _ => {
+    inputString = inputString.trim().split('\n').map(string => {
+        return string.trim();
+    });
+    
+    main();    
+});
+
+function readLine() {
+    return inputString[currentLine++];
+}
+
+/*
+ * Determine the original side lengths and return an array:
+ * - The first element is the length of the shorter side
+ * - The second element is the length of the longer side
+ * 
+ * Parameter(s):
+ * literals: The tagged template literal's array of strings.
+ * expressions: The tagged template literal's array of expression values (i.e., [area, perimeter]).
+ */
+function sides(literals, ...expressions) {
+    let sqrVal = (expressions[1] * expressions[1])- 16 * expressions[0];
+    let arr =[];
+    // positive
+    let s1= (expressions[1]+ Math.sqrt(sqrVal))/4;
+    arr.push(s1);
+    
+    // negative
+    let s2=(expressions[1]- Math.sqrt(sqrVal))/4;
+    arr.push(s2)
+    
+    return arr.sort();
+}
+
+
+function main() {
+    let s1 = +(readLine());
+    let s2 = +(readLine());
+    
+    [s1, s2] = [s1, s2].sort();
+    
+    const [x, y] = sides`The area is: ${s1 * s2}.\nThe perimeter is: ${2 * (s1 + s2)}.`;
+    
+    console.log((s1 === x) ? s1 : -1);
+    console.log((s2 === y) ? s2 : -1);
+}
+
+
+
+
+ARRAY AND ARROW FUNCTION= 
+'use strict';
+
+process.stdin.resume();
+process.stdin.setEncoding('utf-8');
+
+let inputString = '';
+let currentLine = 0;
+
+process.stdin.on('data', inputStdin => {
+    inputString += inputStdin;
+});
+
+process.stdin.on('end', _ => {
+    inputString = inputString.trim().split('\n').map(string => {
+        return string.trim();
+    });
+    
+    main();    
+});
+
+function readLine() {
+    return inputString[currentLine++];
+}
+
+/*
+ * Modify and return the array so that all even elements are doubled and all odd elements are tripled.
+ * 
+ * Parameter(s):
+ * nums: An array of numbers.
+ */
+function modifyArray(nums) {
+    let arr = nums.map(a=>{
+          if(a %2===0){
+             return a*2;
+        }
+        else if(a%2!==0){
+             return a*3;
+        }
+    })
+    // let arr = [];
+    // for(let a of nums){
+    //     if(a %2===0){
+    //         arr.push(a*2);
+    //     }
+    //     else if(a%2!==0){
+    //         arr.push(a*3);
+    //     }
+    // }
+    return arr;
+}
+
+
+function main() {
+    const n = +(readLine());
+    const a = readLine().split(' ').map(Number);
+    
+    console.log(modifyArray(a).toString().split(',').join(' '));
+}
+
+
+console.log('start');
+Promise.resolve().then(() => {
+console.log('promise 1');
+setTimeout(() => console.log('timeout inside promise 1 (500ms)'), 500);
+});
+setTimeout(() => console.log('timeout 1 (0ms)'), 0);                                 
+                                                               
+Promise.resolve().then(() => {
+console.log('promise 2');
+setTimeout(() => console.log('timeout inside promise 2 (0ms)'), 0);
+});
+setTimeout(() => console.log('timeout 2'), 500);
+console.log('end');          
+ 
+ CORRECT ANS:
+start
+end
+promise 1
+promise 2
+timeout 1 (0ms)
+timeout inside promise 2 (0ms)
+timeout 2
+timeout inside promise 1 (500ms)
+
+=== C
+var obj1 = {
+    x: 23,
+    abc:function() { 
+        console.log(this.x)
+    }
+}
+var obj2= {
+    x:25
+}
+let res= obj1.abc.bind(obj2)
+res();
+
+Key Takeaways:-
+Arrow functions do not have their own this context.
+Do not use arrow functions as object methods if you need to access other properties within that object.
+Do use standard function declarations or method syntax (methodName() {}) for object methods. 
+
+
+
+let a = 10
+function x(){
+console.log(a)
+}
+print- 10
+
+let a = 10
+function x(){
+console.log(b);
+let b = 20;
+}
+ReferenceError: Cannot access 'b' before initialization
+
+
+const fetchProducts= async()=>{
+try{
+	const res = await fetch('api/call/products')
+	const prods = await res.json();
+	setproducts(prods)
+
+}
+catch(err){
+ throw err;
+}
+ 
+ 
+ 
+
+
+<!-- Enter your HTML code here -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Buttons Grid</title>
+        <link rel="stylesheet" href="css/buttonsGrid.css" type="text/css">
+    </head>
+    
+    <body>
+        
+        <div id="btns">
+            <button id="btn1" class="btn">1</button>
+            <button id="btn2" class="btn">2</button>
+            <button id="btn3" class="btn">3</button><br>
+            <button id="btn4" class="btn">4</button>
+            <button id="btn5" class="btn">5</button>
+            <button id="btn6" class="btn">6</button><br>
+            <button id="btn7" class="btn">7</button>
+            <button id="btn8" class="btn">8</button>
+            <button id="btn9" class="btn">9</button>
+        </div>
+
+        <script >
+		 let nums=[1,2,3,6,9,8,7,4];
+const ids=[1,2,3,6,9,8,7,4];
+
+const btn5=document.getElementById("btn5");
+
+btn5.addEventListener('click', () => {
+            // const ids = ['btn1','btn2','btn3','btn6','btn9','btn8','btn7','btn4'];
+            // const values = ids.map(id => document.getElementById(id).innerText);
+                        // values.unshift(values.pop());
+      // ids.forEach((id, i) => document.getElementById(id).innerText = values[i]);
+            // Rotate clockwise
+            nums.unshift(nums.pop());
+            ids.forEach((id, i) => document.getElementById("btn"+ids[i]).innerText = nums[i]);
+        });
+
+</script>
+
+    </body>
+</html>
+
+
+
+GRAPHQL=
+rest and graphql:-
+offers declarative data fetching (no over or under fetching)
+its strongly typed- its schema should have types for all objects that it uses.
+schema servers as a contract between client and servers
+predictable code
+earlier detection of errors
+
+strong ide integration with type safety and auto completion
+can add new fields with type to graphql apis without breaking changes
+continous access to new features, no versioning as v1, v2 etc.
+
+its not replacement of REST APIS
+its an integration layer between rest apis and UI, its singlepoint bottleneck
+complex cache implementation
