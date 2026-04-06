@@ -13,3 +13,4 @@ function checkpalin(){
     return res;
 }
 console.log(checkpalin())
+

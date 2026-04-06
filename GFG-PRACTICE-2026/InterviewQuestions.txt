@@ -1,0 +1,425 @@
+FUNDAMENTALS OF REACT:-
+
+a library
+virtual dom
+reusable component
+declarative in nature-Declarative React means you describe what the UI should look like for any given state, rather than how to manually update the DOM step-by-step (imperative). You declare the desired outcome using JSX and state, and React handles the complex process of efficiently updating the real DOM to match that description, making code cleaner, more predictable, and easier to manage. 
+hooks
+
+React Class Component:
+ 
+Q.No: 1. How to set and update state in React for class component? write the complete code (maximum 3 minutes only allowed)
+ name, age;
+ constructor(name, age){
+ this.name = name;
+ this.age = age;
+ }
+ function setName (val){
+	this.name = val;
+ }
+ 
+React Functional Component (3 Minutes only allowed)
+ 
+Q.No: 2. How to set and update state in React for functional component? write the complete code (maximum 3 minutes only allowed)
+ const [name, setName]= useState("");
+ to update :-
+ const addName = (val)=>{
+ 
+ setName(val);
+ }
+ 
+React Pass Props (3 Minutes only allowed)
+ 
+Q.No: 3. How to pass props from parent to child in React? write the complete code (maximum 3 minutes only allowed)
+ const Parent =()=>{
+	 return (
+	 <Child name="Alaska"/>
+	 )
+ }
+ 
+ const Child=({name})=>{
+	 return (
+		<h1> {name}</h1>
+	 )
+ }
+ 
+React Redux (3 Minutes only allowed)
+ 
+4. How do you connect store in redux? write the complete code (maximum 3 minutes only allowed)
+ create store.js file in the react application root dir.
+ connect that store in index.js file of the application inside the provider.
+ 
+ 
+ES6 (2 Minutes only allowed)
+ 
+5. what is the output for the below one in ES6 if we run in browser? (Maximum 2 minutes only allowed)
+alert([...'apple']);
+ 
+Console.log([...'apple']);
+ 
+ 
+ - should throw error 
+ 
+ 
+ES6 (3 Minutes only allowed)
+ 
+6. Write one simple example for rest operator in ES6?
+ const fruits = ["apple", "mango", "pineapple"];
+ const updatedFruits = [...fruits, "orange"];
+ 
+ 
+ES6 (5 Minutes only allowed)
+ 
+7. Write one simple code for Promise in ES6? (maximum 5 minutes only allowed)
+
+const data = new Promise((resolve, reject)=>{
+const user = fetch("api url");
+resolve(user);
+if(!user){
+reject("thowing errow");
+})
+
+questions asked in the interview :-
+The JavaScript code console.log([...'apple']); will output an array of individual characters from the string "apple" to the console.
+The spread syntax (...) is used here to expand the iterable string "apple" into its individual characters. These characters then become elements of a new array.
+
+['a', 'p', 'p', 'l', 'e']
+
+
+
+Problem: Build a tiny Todo app using React and Redux Toolkit where you can:
+Add a todo
+Toggle a todo’s completed status
+See a count of completed todos
+Requirements
+Use Redux Toolkit to create a slice with:
+todos array: { id, text, completed }
+Reducers: addTodo(text) and toggleTodo(id)
+ 
+A React component with:
+An input + “Add” button
+A list of todos (click to toggle)
+A “Completed: X/Y” summary
+Wire Redux store with <Provider>.
+ 
+ 
+ 
+Q11- state is called to local variables whose values can be updated using usestate() hook , props are passed from parent to child to pass data.
+Q12- keys are required while rendering the list in react, to give each value a unique id and can perform actions on each value separately. otherwise react can't differentiate all values in the list.
+Q13. useEffect() hook as sideeffects hook, it performs lifecycle methods using dependency array like mount, update and unmount 
+Q14. I don't know
+Q15. controlled - this use states to store input value and can be updated using event handlers, while uncontrolled comps use DOM refs like default value or refs.
+Q16. fragments are used to enclose multiple jsx elements to return single jsx element as multiple elements are not allowed in the return() in reactjs
+Q17. using useMemo() and useCallback() hooks and keeping state localized and passing stable props.
+Q18. Conditional rendering patterns means showing the components based on condition like below:
+{!isLoading && <App/>} it will show the app only when loading is false.
+
+Q19. 
+import {useState} from 'react';
+export default function App() {
+const [count, setCount]=useState(0);
+const [num, setNum ]=useState(0)
+  
+return(
+	<>
+		<button onClick={()=>setCount(count-1)} disabled={count===0}>
+			Decrement
+		</button>
+		<h1>{count}</h1>
+		Enter number to add:- 
+		<input value={num}  type="number" 
+				onChange={(e)=>setNum(e.target.value)} />
+		
+		<button onClick={()=>setCount(c=> (parseInt(c)+parseInt(num)))}>Increment</button>
+	</>
+)}
+
+
+Q20.
+const items = ["Apple", "Banana", "Grapes", "Orange", "Papaya"]
+
+function SearchList({ items }) {
+	const [query, setQuery]=useState('');
+    const filteredfruits=items.filter(item=>{
+        return item.toLowerCase().includes(query.toLowerCase())
+    })
+  return(
+      <>
+        <h1>Filtered fruits</h1>
+		<input type="text" value={query} 
+			  onChange={(e)=>setQuery(e.target.value)}/>
+		  <div></div>
+		  Filtered fruits:   
+			  <ul>
+				   {filteredfruits.map((val,i)=>(
+			  <li key={i}>{val}</li>
+		  ))}
+			  </ul>
+  </>
+  )
+}
+INPUT WITH useRef() hook:-
+ 
+ import React, { useRef } from 'react';
+
+function UncontrolledInputExample() {
+  const inputRef = useRef(null); // 1. Create a ref
+
+  const handleClick = () => {
+    // Access the value using .current.value when needed
+    alert('Input value: ' + inputRef.current.value);
+  };
+
+  return (
+    <div>
+      <input type="text" ref={inputRef} placeholder="Type here..." /> {/* 2. Attach the ref */}
+      <button onClick={handleClick}>Get Value</button>
+    </div>
+  );
+}
+
+export default UncontrolledInputExample;
+
+ 6th jan 2026:-
+ 
+ destructuring props and strings?
+ 
+4) How do you pass data from child to parent?
+5) multiple rerendering scenario?
+
+6) array destructuring-
+const numbers = [10, 20, 30, 40, 50];
+const [a, , c, , e] = numbers;
+console.log(a, c, e); // Output: 10 30 50
+
+7) es6 features atleast 5 
+let and const: Block-scoped variables, replacing var's function scope for better control.
+Arrow Functions: Shorter syntax for functions, especially useful for callbacks, with lexical this binding.
+Template Literals: Backticks (`) for multi-line strings and embedded expressions (e.g., ${variable}).
+Destructuring Assignment: Easily extract values from arrays and objects into distinct variables.
+Spread/Rest Operator (...): Expands iterables (spread) or gathers multiple arguments (rest).
+debounce and throttling
+spread and rest operator diff
+
+2) Key Difference Between map() & filter() + Performance
+dekho Map and Filter dono array methods hain, par kaam alag hai:
+
+map(): Har element ko transform karta hai and returns new array same length.
+filter(): returns new array of elements that satisfied the condition, length kam ho sakti hai.
+Performance? Filter method can be fast, but mostly with large set of values, kyunki transformation nahi karta, 
+par difference negligible hai.*
+
+Both are highly optimized & efficient for their respective purposes.
+Example:
+[1,2,3].map(x => x*2); // [2,4,6]
+[1,2,3].filter(x => x>1); // [2,3]
+
+
+10) how to define a complex project question in interview??
+11) block scope and function scope difference 
+ 
+ 
+high order functions - which takes fun as parameter and also return a function.
+
+export default function App() {
+    const [num, setNum]=useState(1);
+    const [post, setPosts]=useState([])
+    const handleClick=()=>{
+        setNum(Math.floor(Math.random()*6)+1)
+    }
+    const fetchPost=async ()=>{
+        const url = "https://jsonplaceholder.typicode.com/posts"
+        try{
+             const res = await fetch(url)
+            const post= await res.json();
+            console.log(post)
+            setPosts(post)
+        }
+        catch(err){
+            console.log(err);
+            throw err;
+        }
+    }
+  return <div>
+      <button onClick={handleClick}>Click</button>
+      Output: <h1>{num}</h1>
+      <button onClick={fetchPost}>fetch post</button>
+      <ul>
+      {post && post.map((val)=>(
+      <li key={val.id}>{val.title}</li>
+      ))}
+          </ul>
+  </div>
+}
+ANGULAR-
+A complicated framework with built-in features like routing, form handling, and state management
+Angular uses a real DOM with two-way data binding, which can become slower for large-scale applications with frequent updates.
+Components are defined using decorators (@Component), requiring specific metadata and often a separate template file (HTML) and a styles file (CSS)
+Primarily uses TypeScript, offering a strongly typed experience [1].
+
+
+REACT-
+A flexible library focused solely on building UIs, allowing developers to pick other libraries for features like routing or state management
+
+React uses a Virtual DOM to efficiently update only the parts of the UI that change, leading to better performance in many scenarios.
+JavaScript functions or classes that return UI elements (JSX), often combining logic and presentation within a single file [1].
+Primarily uses JavaScript (ES6+) with optional support for TypeScript [1].
+
+
+2) What’s new in React 18 that affects apps?
+
+Look for: Concurrent features, createRoot, automatic batching, Suspense improvements.
+
+3)  What is Babel? What is Webpack/Vite?
+acts as a transpiler, converting modern JavaScript code (like ES6+ features and JSX used in React) into an older, backwards-compatible version of JavaScript (usually ES5) that can run on virtually all browsers
+
+babel: You write code using the latest language features or special syntax like JSX, and Babel translates it into code that every browser understands, ensuring your application works everywhere.
+
+vite: Webpack is like a powerful factory manager. It takes all the raw materials (your code and assets), processes them according to specific instructions (loaders and plugins), and packages them into streamlined boxes (bundles) for delivery to the browser.
+Key features: Highly customizable, extensive plugin ecosystem, code splitting, and tree-shaking for large, complex applications.
+
+Q) stateful vs stateless components:-
+Stateful Components:
+Definition: Maintain internal data (state) and can change over time.
+Usage: Handle logic, user interactions, API calls, and complex data.
+Syntax: Typically class components (older) or functional components using useState hooks.
+Pros/Cons: Higher complexity, less reusable, but crucial for dynamic interaction. 
+Stateless Components:
+Definition: Do not maintain internal state; they only receive props to render UI.
+Usage: Presentational UI (e.g., buttons, cards).
+Syntax: Simple functional components.
+Pros/Cons: Highly reusable, easy to test, and better performance
+
+import {useReducer} from 'react'
+export default function App() {
+
+  function counter(state, action){
+    switch(action.type){
+        case 'add': 
+          return {count:state.count += 1};
+        case'subtract':
+          return {count: state.count -= 1};
+        default:
+          return;
+    }
+  }
+  const [state, dispatch]= useReducer(counter, {count : 2});
+  return (
+    <>
+       <h1>Hello world</h1>
+      <h1>{state.count}</h1>
+      <br/>
+      <button onClick={()=> dispatch({type:'add'})}>add</button>
+    
+    <button onClick={()=> dispatch({type:'subtract'})} disabled={state.count===0}> subtract </button>
+    </>
+   
+         )
+}
+
+let sentence = "Hello, world! This is a test.";
+
+// Remove all literal space characters
+let noSpaces = sentence.replaceAll(' ', '');
+console.log(noSpaces);
+let multiLine = "  A B C \t D \n E  ";
+let noWhitespace = multiLine.replace(/\s/g, '');
+let sentence = "Hello, world! This is a test.";
+let noSpacesRegex = sentence.replace(/ /g, '');
+console.log(noSpacesRegex);
+
+const [str, setStr]=useState("abcd")
+const [anag, setAnag]=useState("false")
+const str2= "ab";
+    function anagram(){      
+        if(str.includes(str2)){
+            alert("true")
+            setAnag("true")
+     }
+    }
+    
+    useEffect(()=>{
+        anagram();
+    },[str, str2, anag]);
+	
+	
+	React Class Component:
+ 
+Q.No: 1. How to set and update state in React for class component? write the complete code (maximum 3 minutes only allowed)
+ 
+ 
+React Functional Component (3 Minutes only allowed)
+ 
+Q.No: 2. How to set and update state in React for functional component? write the complete code (maximum 3 minutes only allowed)
+ 
+ 
+React Pass Props (3 Minutes only allowed)
+ 
+Q.No: 3. How to pass props from parent to child in React? write the complete code (maximum 3 minutes only allowed)
+ 
+ 
+React Redux (3 Minutes only allowed)
+ 
+4. How do you connect store in redux? write the complete code (maximum 3 minutes only allowed)
+ 
+ 
+ES6 (2 Minutes only allowed)
+ 
+5. what is the output for the below one in ES6 if we run in browser? (Maximum 2 minutes only allowed)
+ 
+alert([...'apple']);
+ 
+Console.log([...'apple']);
+a, p, p, l, e
+ 
+ 
+ES6 (3 Minutes only allowed)
+ 
+6. Write one simple example for rest operator in ES6?
+ 
+ 
+ES6 (5 Minutes only allowed)
+ 
+7. Write one simple code for Promise in ES6? (maximum 5 minutes only allowed)
+ 
+10) strict mode of react??
+Q11. Explain stale closure in hooks and how to avoid it.
+Q12. When would you use useReducer instead of useState?
+Q13. How do you prevent a context provider’s value from causing frequent re-renders?
+Q14. Explain useTransition and a good use case.
+Q15. What are common pitfalls with useEffect dependencies? How do you fix them?
+Q16. How would you implement debounce or throttle in a React input without external libraries?
+Q17. When mapping lists, when is it okay to use the index as key? When is it not okay?
+Q18. Describe a pattern to share state across distant components without heavy prop drilling, while keeping performance good.
+
+q1- C Cleanup runs after the component re-renders
+Q2- B. Calling a state setter inside useEffect without a proper dependency array
+Q3- A. Put all values you read in the effect inside the dependency array
+Q4- C. State updates inside the child
+Q5- A. It memoizes the function instance based on dependencies
+Q6- B. Split context into smaller providers or memoize the value with useMemo
+Q7- A. useTransition
+Q8- C. It centralizes state updates via actions and a reducer
+Q9- A. useMemo(() => compute(data), [data])
+Q10- B. Use useEffect with proper cleanup/guards; handle loading/error states
+ 
+Q14. Lifting state up — 0/2
+Ideal answer:
+“Lifting state up” means moving shared state to the closest common ancestor so multiple siblings can read/update it.
+Example:
+Parent keeps selectedId and passes it down to List (to set selected) and Details (to show selected item).
+
+Q15- Dependency array role — USEEFFECT QUESTION
+Your answer: Mentions lifecycle and dependency array; slightly off.
+Correction:
+The dependency array tells React when to re-run the effect:
+
+[] → run once on mount (cleanup on unmount).
+[a, b] → run after first render and whenever a or b change.
+(no array) → run after every render.
+It doesn’t by itself encode “update” vs “unmount”—cleanup function handles unmount.
+
+16.  Conditional rendering — 2/2
+Ternary: {isAuth ? <Dashboard/> : <Login/>}
+Null return: {shouldShow ? <Comp/> : null}
+Switch-like mapping: {map[type] ?? null}

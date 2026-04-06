@@ -54,3 +54,37 @@ const occ = dups.reduce((acc, cur)=>
  console.log(occ)
  
  
+
+// great question- 
+// Find the number with max freq and if more than 1 num has same freq then return the max num among them
+const numArr= [1,2,3,4,3,2,4,3,6,3, 6, 6,7,7,5,7,9,6,8,5,7]
+
+let maxcount = 0;
+let arrofMaxFreq=[];
+let maxkey=0;
+function getNumWithMaxFreq(){
+    const numFreq = numArr.reduce((acc, cur)=> cur in acc ? 
+    {...acc, [cur]:acc[cur]+1}: 
+    {...acc, [cur]: 1}, {})
+    
+   const keyvalArr = Object.entries(numFreq);
+   for(let [, value] of keyvalArr){
+       if(maxcount < value)
+       maxcount = value;
+   }
+     console.log(keyvalArr);
+    for(let [key, value] of keyvalArr){
+       if(value === maxcount)
+        arrofMaxFreq.push(key) //(Recommended for Performance)
+        // arrofMaxFreq= [...arrofMaxFreq, key] //(Recommended for Immutability) 
+   }
+   console.log(arrofMaxFreq);
+   for(key of arrofMaxFreq){
+       if(maxkey <key){
+           maxkey = key;
+       }
+   }
+   
+   return maxkey;
+}
+console.log("Reversed arr:- "+ getNumWithMaxFreq());
